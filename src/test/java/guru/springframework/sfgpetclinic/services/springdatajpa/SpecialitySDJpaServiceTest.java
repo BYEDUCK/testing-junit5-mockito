@@ -42,4 +42,11 @@ class SpecialitySDJpaServiceTest {
         assertThat(foundSpecialty).isNotNull();
         verify(specialtyRepository).findById(1L);
     }
+
+    @Test
+    void deleteTest() {
+        Speciality speciality = new Speciality();
+        service.delete(speciality);
+        verify(specialtyRepository).delete(any(Speciality.class));
+    }
 }
